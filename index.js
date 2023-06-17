@@ -1,30 +1,17 @@
-let userContainer = document.getElementById('users')
+document.getElementById('heading').style.color='Black'
+document.getElementById('heading').style.backgroundColor='blue'
 
-const getUsers = ()=>{
-   return fetch('https://dummyjson.com/users')
-    .then(response=>response.json())
-    .then(response=>response)
-    .catch(error=>error.message)
-};
+document.getElementById('intro').innerHTML = 'My name is Ivy I am 22 years old.';
+document.getElementById('intro').style.fontSize = '24px'
+let paragraph = document.createElement('p');
+paragraph.innerHTML = 'I am new'
+document.getElementById('container').appendChild(paragraph);
+// document.getElementById('container').removeChild(paragraph);
+let child = document.getElementById('container').children;
+console.log({child})
 
-
-const displayUsers = async()=>{
-    const users = await getUsers();
-    console.log(users.users);
-    users.users.map(item=>{
-        let div = document.createElement('div')
-        div.className = 'people'
-        let img = document.createElement('img')
-        let names = document.createElement('h2')
-        let userName = document.createElement('p')
-
-        img.src = item.image;
-        names.innerHTML = `${item.firstName} ${item.lastName}`;
-        userName.innerHTML = item.username;
-        div.appendChild(img);
-        div.appendChild(names);
-        div.appendChild(userName);
-        userContainer.appendChild(div);
-    })
-}
-displayUsers();
+let button = document.getElementById('button')
+button.addEventListener('click',function(){
+button.innerHTML = 'Clicked!!!'
+})
+document.getElementById('container').setAttribute('class','containers')
